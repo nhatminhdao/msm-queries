@@ -10,8 +10,17 @@ class DirectorsController < ApplicationController
 
     @the_director = matching_records.first
 
-    @matching_movies = Movie.where({ :director_id => @the_director.id})
-
     render({ :template => "director_templates/show"})
   end
+
+  def youngest
+    @youngest_director= Director.all.maximum(:dob).first
+    
+    render({ :template => "director_templates/youngest" })
+  end
+
+  def oldest
+    render({ :template => "director_templates/oldest" })
+  end
+
 end

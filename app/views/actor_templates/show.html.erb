@@ -44,7 +44,7 @@
       <td><%= Director.where({ :id => Movie.where({ :id => a_character.movie_id}).first.director_id}).first.name %></td>
       <td><%= a_character.name %></td>
       <td>
-        <a href="/movies/<%= Movie.where({ :id => a_character.movie_id }) %>">Show details</a>
+        <a href="/movies/<%= Movie.where({ :id => a_character.movie_id }).first.id %>">Show details</a>
       </td>
     </tr>
   <% end %>
